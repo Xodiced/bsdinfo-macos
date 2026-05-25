@@ -58,7 +58,7 @@ By default this installs to `/usr/local/bin/bsdinfo`.
 To install somewhere else, regenerate the Makefile with a custom prefix:
 
 ```sh
-./configure --prefix=/opt/local
+sh configure --prefix=/opt/local
 make
 make install
 ```
