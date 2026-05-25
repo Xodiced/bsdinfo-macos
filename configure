@@ -1,0 +1,47 @@
+#!/bin/sh
+
+genMakefile() {
+	printf '%b\n' "$1" >> Makefile;
+}
+
+_prefix=/usr/local;
+_cc='gcc';
+for opt in "$@"; do
+	baseopt=$(echo "$opt" |sed -e 's/=/ /');
+	optname=$(echo "$baseopt" |awk '{print $1}');
+	optval=$(echo "$baseopt" |awk '{print $2}');
+	case "$optname" in
+		--prefix)
+			_prefix="$optval";
+			;;
+
+		--x256)
+			echo "bsdinfo-xterm-256 is not available in the macOS port; using bsdinfo.c";
+			;;
+	esac
+done
+
+# Remove trailing slash from the prefix (it will be added later)
+_prefix=$(echo "$_prefix" |sed -e 's/\/$//');
+
+# Clear the makefile
+: > Makefile;
+
+genMakefile 'INSTALL=\tinstall';
+genMakefile 'INSTALL_EXEC=\t$(INSTALL) -m 0755';
+if [ "$CC" != "" ]; then
+    _cc="$CC";
+fi
+genMakefile 'CC=\t'"$_cc";
+genMakefile '';
+genMakefile 'target all:';
+genMakefile '\t${CC} ${CFLAGS} bsdinfo.c -o bsdinfo';
+genMakefile '';
+genMakefile 'install:';
+genMakefile '\t${INSTALL_EXEC} bsdinfo '"$_prefix"'/bin/bsdinfo';
+genMakefile '';
+genMakefile 'deinstall:';
+genMakefile '\trm '"$_prefix"'/bin/bsdinfo';
+genMakefile '';
+genMakefile 'clean:';
+genMakefile '\trm -f bsdinfo';
