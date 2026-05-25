@@ -63,28 +63,6 @@ make
 make install
 ```
 
-## Upload To GitHub
-
-Create an empty repository on GitHub named `bsdinfo-macos`, then run:
-
-```sh
-git add .
-git commit -m "Initial macOS bsdinfo clone"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/bsdinfo-macos.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` with your GitHub username.
-
-If you use the GitHub CLI, you can create and push the repository directly:
-
-```sh
-gh repo create bsdinfo-macos --public --source=. --remote=origin --push
-```
-
-Use `--private` instead of `--public` if you want it private.
-
 ## Credits
 
 Inspired by the FreeBSD `bsdinfo` utility by Jakub Szafranski.
