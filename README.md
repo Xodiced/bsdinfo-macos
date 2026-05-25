@@ -37,6 +37,13 @@ The real output is colorized in the terminal.
 
 ## Build
 
+You need a C compiler. On macOS, installing the Xcode Command Line Tools is
+enough:
+
+```sh
+xcode-select --install
+```
+
 ```sh
 make
 ```
@@ -69,3 +76,7 @@ Inspired by the FreeBSD `bsdinfo` utility by Jakub Szafranski.
 
 This project is not FreeBSD `bsdinfo`; it is a macOS-focused clone that aims to
 preserve the same spirit and terminal layout while using macOS system APIs.
+
+## License
+
+BSD 2-Clause. See [LICENSE](LICENSE).
