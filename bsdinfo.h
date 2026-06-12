@@ -219,8 +219,6 @@ int printmem()
     vm_statistics64_data_t vmstat;
     uint64_t active;
     uint64_t compressed;
-    uint64_t inactive;
-    uint64_t speculative;
     uint64_t wired;
     uint64_t used;
     uint64_t total;
@@ -245,10 +243,8 @@ int printmem()
 
     active = (uint64_t)vmstat.active_count * (uint64_t)page_size;
     compressed = (uint64_t)vmstat.compressor_page_count * (uint64_t)page_size;
-    inactive = (uint64_t)vmstat.inactive_count * (uint64_t)page_size;
-    speculative = (uint64_t)vmstat.speculative_count * (uint64_t)page_size;
     wired = (uint64_t)vmstat.wire_count * (uint64_t)page_size;
-    used = active + compressed + inactive + speculative + wired;
+    used = active + compressed + wired;
 
     printf("%lluM / ", used / 1024 / 1024);
     printf("%lluM", total / 1024 / 1024);
