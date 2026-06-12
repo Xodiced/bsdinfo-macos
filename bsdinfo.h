@@ -321,13 +321,18 @@ int printbootmethod()
 
     memset(machine, 0, sizeof(machine));
     size = sizeof(machine);
-    if (sysctlbyname("hw.machine", machine, &size, NULL, 0) == 0 &&
-        strncmp(machine, "arm64", 5) == 0) {
-        printf("iBoot");
+    if (sysctlbyname("hw.machine", machine, &size, NULL, 0) == 0) {
+        if (strncmp(machine, "arm64", 5) == 0) {
+            printf("iBoot");
+        } else if (strcmp(machine, "x86_64") == 0 || strcmp(machine, "i386") == 0) {
+            printf("EFI");
+        } else {
+            printf("Unknown");
+        }
         return (0);
     }
 
-    printf("EFI");
+    printf("Unknown");
     return (0);
 }
 
