@@ -1,3 +1,8 @@
+/*
+ * bsdinfo-macos 1.0.2
+ * macOS port copyright (c) 2026 Xodice.
+ */
+
 /*-
  * Copyright (c) 2012, Jakub Szafrański <samu@pirc.pl>
  * All rights reserved.
