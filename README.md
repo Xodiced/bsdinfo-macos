@@ -4,8 +4,7 @@
 information utility.
 
 It keeps the same compact `bsdinfo`-style output, ordering, labels, and terminal
-feel while reading system information from macOS/Darwin APIs. The README preview
-uses an Apple-style logo for macOS.
+feel while reading system information from macOS/Darwin APIs.
 
 ## What It Shows
 
