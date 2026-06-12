@@ -306,7 +306,27 @@ int printcpu()
 
 int printbootmethod()
 {
+    int arm64;
+    char machine[256];
+    size_t size;
+
     printf(LABEL "Bootmethod:" RESET " ");
+
+    arm64 = 0;
+    size = sizeof(arm64);
+    if (sysctlbyname("hw.optional.arm64", &arm64, &size, NULL, 0) == 0 && arm64 == 1) {
+        printf("iBoot");
+        return (0);
+    }
+
+    memset(machine, 0, sizeof(machine));
+    size = sizeof(machine);
+    if (sysctlbyname("hw.machine", machine, &size, NULL, 0) == 0 &&
+        strncmp(machine, "arm64", 5) == 0) {
+        printf("iBoot");
+        return (0);
+    }
+
     printf("EFI");
     return (0);
 }
