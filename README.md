@@ -22,7 +22,7 @@ feel while reading system information from macOS/Darwin APIs.
 
 ```text
                  111111                     Hostname: MacBook.local
-                111111                      Bootmethod: EFI
+                111111                      Bootmethod: iBoot
                111111                       OS: macOS 27.0 arm64
          111111111111111111111              Version: 26A5353q
      11111111111111111111111111111          CPU: Apple M1
