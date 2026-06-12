@@ -3,9 +3,9 @@
 `bsdinfo-macos` is a macOS clone of the FreeBSD `bsdinfo` terminal system
 information utility.
 
-It keeps the same compact `bsdinfo`-style output, ordering, labels, terminal
-feel, and FreeBSD-style binary logo while reading system information from
-macOS/Darwin APIs.
+It keeps the same compact `bsdinfo`-style output, ordering, labels, and terminal
+feel while reading system information from macOS/Darwin APIs. The README preview
+uses an Apple-style logo for macOS.
 
 ## What It Shows
 
@@ -22,20 +22,25 @@ macOS/Darwin APIs.
 ## Preview
 
 ```text
-        100010100111110111000        00
-100001010101111010000000111110010001  Hostname: MacBook.local
-100011011001111100000011100100101101  Bootmethod: EFI
-100111001111011010101001101111001110  OS: macOS 27.0 arm64
-100000000110110011010111101100110111  Version: 26A5353q
-111001000100110011101110011100001111  CPU: Apple M1
-011010100001000010000010111000111011  RAM: 15518M / 16384M
-001101000100110001010011100010001101  Processes: 820
-101011100001011110011001001110110010  Shell: fish
-010100010010111101101111101100000011  Uptime: 1:16
+                 111111                     Hostname: MacBook.local
+                111111                      Bootmethod: EFI
+               111111                       OS: macOS 27.0 arm64
+         111111111111111111111              Version: 26A5353q
+     11111111111111111111111111111          CPU: Apple M1
+   111111111111111111111111111111111        RAM: 15518M / 16384M
+  1111111111111111111111111111111           Processes: 820
+ 11111111111111111111111111111              Shell: fish
+ 11111111111111111111111111111111           Uptime: 1:16
+ 111111111111111111111111111111111
+  111111111111111111111111111111111
+   111111111111111111111111111111
+    111111111111111111111111111
+      111111111111111111111111
+        111111111111111111
+           1111111111
 ```
 
-The real output is colorized in the terminal; this preview keeps a small
-plain-text gap so it remains readable on GitHub.
+The real output is colorized in the terminal.
 
 ## Build
 
