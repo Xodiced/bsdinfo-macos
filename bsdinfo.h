@@ -45,13 +45,19 @@
 
 #define LABEL "\033[1;31m"
 #define RESET "\033[0;0m"
-#define ART_WIDTH 43
+#define ART_WIDTH 37
 
 int printapplelinecolor(const char *line, int stripe)
 {
     int i;
+    int end;
 
-    for (i = 0; line[i] != '\0'; ++i) {
+    end = (int)strlen(line);
+    while (end > 0 && (line[end - 1] == ' ' || line[end - 1] == '0')) {
+        --end;
+    }
+
+    for (i = 0; i < end; ++i) {
         int color;
 
         if (line[i] == ' ' || line[i] == '0') {
