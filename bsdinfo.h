@@ -40,51 +40,37 @@
 
 #define LABEL "\033[1;31m"
 #define RESET "\033[0;0m"
-#define ART_WIDTH 36
+#define ART_WIDTH 43
 
-int printbsdlinecolor(const char *line, const char *colors)
+int printapplelinecolor(const char *line, int stripe)
 {
     int i;
 
     for (i = 0; line[i] != '\0'; ++i) {
         int color;
 
-        if (line[i] == ' ') {
+        if (line[i] == ' ' || line[i] == '0') {
             putchar(' ');
             continue;
         }
 
-        switch (colors != NULL && colors[i] != '\0' ? colors[i] : 'k') {
-        case 'r':
-            color = 196;
-            break;
-        case 'g':
-            color = 34;
-            break;
-        case 'y':
-            color = 220;
-            break;
-        case 'k':
-        default:
-            color = 237;
-            break;
-        }
+        color = stripe;
         printf("\033[38;5;%dm%c" RESET, color, line[i]);
     }
 
     return (i);
 }
 
-int printbsdline(const char *line)
+int printappleline(const char *line)
 {
-    return (printbsdlinecolor(line, "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"));
+    return (printapplelinecolor(line, 196));
 }
 
-void printbsdinfo(const char *line, const char *colors)
+void printappleinfo(const char *line, int stripe)
 {
     int width;
 
-    width = printbsdlinecolor(line, colors);
+    width = printapplelinecolor(line, stripe);
     while (width < ART_WIDTH) {
         putchar(' ');
         ++width;
